@@ -20,33 +20,37 @@ void round_result(char str[], int *win, int *lose, int *draw, int random, char *
         (strcmp(str, "rock") == 0 && strcmp(choice[random], "scissors") == 0) ||
         (strcmp(str, "scissors") == 0 && strcmp(choice[random], "paper") == 0))
     {
-        printf("Result: You Win!:\n\n");
+        printf("Result: You Win \n\n");
         (*win)++;
     }
 
     else if (strcmp(str, choice[random]) == 0)
     {
-        printf("Result: Match Drawn!:\n");
+        printf("Result: Draw \n");
         (*draw)++;
     }
 
     else
     {
-        printf("Result: You Lose!:\n");
+        printf("Result: You Lose \n");
         (*lose)++;
     }
 }
 // Function to decide each round ends here
 
 // Function to decide final result starts from here
-void final_result(int win, int lose)
+void final_result(char name_of_user[] ,int win, int lose , int draw)
 {
+    printf("Final Result:\n");
+    printf("%s Score: %d\n", name_of_user , win);
+    printf("Computer Score: %d\n", lose);
+    printf("Draw: %d\n", draw);
     if (win > lose)
-        printf("\nCongratulations! You win the series\n");
-    else if (lose > win)
-        printf("\nOops! You lose the series\n");
+        printf("\nOverall Winner: " , name_of_user);
+        else if (lose > win)
+        printf("\nOverall Winner: Computer");
     else
-        printf("\nSeries drawn\n");
+        printf("\nOverall Winner: Draw:\n");
 }
 // Function to decide final result ends here
 
@@ -63,7 +67,7 @@ int main()
     printf("Enter your name: ");
     scanf("%s", name_of_user);
     // Asking for number of rounds
-    printf("Enter your rounds: ");
+    printf("Enter number of rounds: ");
     scanf("%d", &rounds);
 
     srand(time(NULL));
@@ -72,7 +76,7 @@ int main()
     {
         random = rand() % 3;
 
-        printf("\nRound %d:\n", i);
+        printf("\n--- Round %d ---:\n", i);
 
         while (1)
         {
@@ -99,7 +103,7 @@ int main()
         round_result(user_choice, &win, &lose, &draw, random, choice);
     }
     //" final_result" function call
-    final_result(win, lose);
+    final_result( name_of_user ,win, lose , draw);
 
     return 0;
 }
