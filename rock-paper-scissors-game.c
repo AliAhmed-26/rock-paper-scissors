@@ -46,7 +46,7 @@ void final_result(char name_of_user[] ,int win, int lose , int draw)
     printf("Computer Score: %d\n", lose);
     printf("Draw: %d\n", draw);
     if (win > lose)
-        printf("\nOverall Winner: " , name_of_user);
+        printf("\nOverall Winner: %s" , name_of_user);
         else if (lose > win)
         printf("\nOverall Winner: Computer");
     else
@@ -61,7 +61,7 @@ int main()
     int random, lose = 0, win = 0, draw = 0;
     char user_choice[10];
     char name_of_user[20];
-    char *choice[] = {"paper", "rock", "scissors"};
+    char *choice[] = {"rock","paper",  "scissors"};
 
     // Asking for user_name
     printf("Enter your name: ");
@@ -76,7 +76,7 @@ int main()
     {
         random = rand() % 3;
 
-        printf("\n--- Round %d ---:\n", i);
+        printf("\n--- Round %d ---\n", i);
 
         while (1)
         {
@@ -95,7 +95,7 @@ int main()
             {
                 break;
             }
-            printf("Invalid input:\n");
+            printf("Invalid input. Enter rock, paper or scissors\n\n");
         }
         printf("Computer chose: %s\n", choice[random]);
 

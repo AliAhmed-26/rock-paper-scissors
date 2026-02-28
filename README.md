@@ -5,7 +5,6 @@ A console-based Rock Paper Scissors game written in C, where the user plays agai
 ## Features
 - Personalized gameplay using user name
 - Multiple user-defined rounds
-<!-- - Play against the computer -->
 - Case-insensitive user input
 - Random computer move generation using rand()
 - Invalid input handling
